@@ -4,8 +4,6 @@ class Photo {
   int id;
   String url;
   
-  Photo(this.id, this.url);
-
   Image get data{
     // This will return an image soon!
     return Image.network("https://i.ytimg.com/vi/fq4N0hgOWzU/maxresdefault.jpg");
