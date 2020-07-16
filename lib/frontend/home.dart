@@ -5,6 +5,8 @@ import 'package:flutter_instagram_app/backend/models/photo.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'widgets/image_slider.dart';
+import 'widgets/post_container.dart';
+import 'widgets/post_lower_bar.dart';
 import 'widgets/post_upper_barr.dart';
 
 class Home extends StatefulWidget {
@@ -62,165 +64,15 @@ class _HomeState extends State<Home> {
         header: MaterialClassicHeader(),
         controller: _refreshController,
         onRefresh: _onRefresh,
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              PostUpperBar(),
-              ImageSlider([
-                Photo(null, "https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg", 1600, 1067),
-                Photo(null, "https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2016/11/2017-Toyota-Tacoma-TRD-Pro-4x4.jpg", 2250, 1375),                
-              ]),
-              // SizedBox(
-              //   height: 400,
-              //   child: ListView(
-              //     physics: BouncingScrollPhysics(),
-              //     children: <Widget>[
-              //       SizedBox(
-              //         width: MediaQuery.of(context).size.width,
-              //         child: PinchZoomImage(
-              //           image: Image.network(
-              //               'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //         ),
-              //       ),
-              //       SizedBox(
-              //         width: MediaQuery.of(context).size.width,
-              //         child: PinchZoomImage(
-              //           image: Image.network(
-              //               'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //         ),
-              //       ),
-              //       SizedBox(
-              //         width: MediaQuery.of(context).size.width,
-              //         child: PinchZoomImage(
-              //           image: Image.network(
-              //               'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //         ),
-              //       ),
-              //     ],
-              //     scrollDirection: Axis.horizontal,
-              //   ),
-              // ),
-              // SingleChildScrollView(
-              //   primary: true,
-              //   physics: BouncingScrollPhysics(),
-              //   scrollDirection: Axis.horizontal,
-              //   child: Row(
-              //     children: <Widget>[
-              //       SizedBox(
-              //         width: MediaQuery.of(context).size.width,
-              //         child: PinchZoomImage(
-              //           image: Image.network(
-              //               'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //         ),
-              //       ),
-              //       SizedBox(
-              //         width: MediaQuery.of(context).size.width,
-              //         child: PinchZoomImage(
-              //           image: Image.network(
-              //               'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //         ),
-              //       ),
-              //       SizedBox(
-              //         width: MediaQuery.of(context).size.width,
-              //         child: PinchZoomImage(
-              //           image: Image.network(
-              //               'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 400,
-              //   width: double.infinity,
-              //   child: Carousel(
-
-              //     autoplay: false,
-              //     showIndicator: false,
-              //     images: <Widget>[
-              //       PinchZoomImage(
-              //         image: Image.network(
-              //             'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //       ),
-              //       PinchZoomImage(
-              //         image: Image.network(
-              //             'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //       ),
-              //       PinchZoomImage(
-              //         image: Image.network(
-              //             'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // CarouselSlider(
-              //   options: CarouselOptions(
-              //     reverse: false,
-              //     enableInfiniteScroll: false,
-              //     scrollPhysics: BouncingScrollPhysics(),
-              //     viewportFraction: 1.0,
-              //   ),
-              //   items: <Widget>[
-              //     PinchZoomImage(
-              //       image: Image.network(
-              //           'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //     ),
-              //     PinchZoomImage(
-              //       image: Image.network(
-              //           'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //     ),
-              //     PinchZoomImage(
-              //       image: Image.network(
-              //           'https://media.ed.edmunds-media.com/toyota/tacoma/2020/oem/2020_toyota_tacoma_crew-cab-pickup_trd-off-road_fq_oem_4_1600.jpg'),
-              //     ),
-              //   ],
-              // ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.purpleAccent,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.redAccent,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.teal,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.green,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.lightBlue,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.lime,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.orange,
-              ),
-              Container(
-                height: 250,
-                width: double.infinity,
-                color: Colors.yellow,
-              ),
-            ],
-          ),
+        child: ListView.builder(
+          physics: BouncingScrollPhysics(),
+          itemCount: 10000,
+          itemBuilder: (context, index) {
+            return PostContainer();
+          },
         ),
       ),
     );
   }
 }
-
 
